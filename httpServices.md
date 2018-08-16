@@ -61,3 +61,38 @@ func main() {
 
 ```
 Go to [localhost:8080](http://localhost:8080) in your browser or `curl` it. If all went well you should see the message `Hello Globant`. Congrats!!
+
+### http.HandlerFunc
+The library uses a neat Go trick to implement the handler interface. It defines the [http.HandlerFunc](https://godoc.org/net/http#HandlerFunc) type as a function with the same signature than the `ServeHTTP` functions: `type HandlerFunc func(ResponseWriter, *Request)`. It then implements the `http.Handler` interface doing the following:
+```go
+type HandlerFunc func(ResponseWriter, *Request)
+
+func (fn HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {
+        fn(w,r)
+}
+```
+This allows us to use the [http.HandlerFunc](https://godoc.org/net/http#HandleFunc) function to register functions as handlers instead of having to create a new type. We could refactor our code to look like this:
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	name := "Globant"
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		if _, err := w.Write([]byte(fmt.Sprintf("Hello %s", name))); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+	})
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+```
+Go over to [localhost:8080](http://localhost:8080) and see what happened!
