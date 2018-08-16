@@ -57,7 +57,7 @@ Here are a few articles that delve into how maps are implemented in Go and expla
 * [There is no pass by reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)
 
 ### Testing
-Go has a builting library called (testing)[https://godoc.org/testing] this library provides us with primitives to perform tests. Although this library does not give us any type of assert or mocks or anything like that.  
+Go has a builting library called [testing](https://godoc.org/testing) this library provides us with primitives to perform tests. Although this library does not give us any type of assert or mocks or anything like that.  
 To perform unit tests in Go you will tipically create a file called `ggg_test.go` where `ggg` is the name of the file you are testing. Inside that file you will create all your test functions, the convetion for the signature of a test function is like this: `func TestNameOfFuncBeingTested(t *testing.T)`. Once you have that done you can run `go test` in the command line and see the results of your tests. Here is a simple example of testing a `Sum` function using what it's called table testing:
 ```go
 sum.go
@@ -153,12 +153,14 @@ The features needed are:
 * http statuses responses
 
 ### REST Impl (3 days)
+Before you start writing the code for your API head over to our [HTTP Services in Go](https://github.com/juanpablopizarro/golang-bootcamp/blob/master/httpServices.md) section to learn the basics of writing servers in Go.
+
 Once the API is defined, we are ready to implement it. 
-There are several way to implement it, you can choose 
+There are quite a lot of go libraries for creating HTTP routers and handlers. But to learn more about how all of it works use one of the following two options:
 * Go Native: https://godoc.org/net/http
 * Gorilla mux: https://godoc.org/github.com/gorilla/mux
 
-You should also consider adding some integration testing for he implemented API, using https://godoc.org/net/http/httptest.
+You should also consider adding some integration testing for the implemented API, using https://godoc.org/net/http/httptest.
 Consider also taking a look at:
 * [unit testing HTTP servers](https://www.youtube.com/watch?v=hVFEV-ieeew) _(video)_
 * [Go Testing Technique: Testing JSON HTTP Requests](https://medium.com/@xoen/go-testing-technique-testing-json-http-requests-76d9ce0e11f)
