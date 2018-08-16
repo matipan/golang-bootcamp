@@ -8,7 +8,7 @@ Go is mainly about three things:
 * **Go is about composition**. It is *kind* of objected oriented just not in the usual way. There are no classes(but methods can be defined on any type), no subtype inheritance and interfaces are satisfied implicitly(we have structural typing). This results in simple pieces connected by small interfaces.
 * **Go is about concurrency**. Go provides [CSP-like](https://en.wikipedia.org/wiki/Communicating_sequential_processes) concurrency primitives, it has lightweight threads called goroutines and typed thread-safe communication and synchronization with channels. This results in comprehensible concurrent code.
 * **Go is about gophers!!**
-![gopher](https://github.com/juanpablopizarro/golang-bootcamp/blob/master/docs/img/gophers.png)
+![gopher](/blob/master/docs/img/gophers.png)
 
 In fact, we even have our own website where we can [create our own Gophers](http://gopherize.me/). Thanks to Mat Ryer and Ashley McNamara for making this.
 
@@ -26,7 +26,7 @@ If you don't already know git then head over to [this tutorials](https://try.git
 ### Golang fundamentals 
 Before each code example you will find a link to a website called [GoPlay space](https://goplay.space) were you can run the code and look at the documentation of packages all in the same place.
 
-Ok, head over to [Golang fundamentals](https://github.com/juanpablopizarro/golang-bootcamp/blob/master/fundamentals.md) to get started!
+Ok, head over to [Golang fundamentals](/blob/master/fundamentals.md) to get started!
 
 
 ## Part 2 (2 days)
@@ -49,7 +49,7 @@ When developing in Go often times you will start by defining an interface that w
 Here is a very good talk by Francesc Campoy explaining how interfaces work in Go and how they worked: [Understanding Go interfaces](https://www.youtube.com/watch?v=F4wUrj6pmSI)
 
 ### Maps
-This is an in-memory database which means that all the data will be kept in some data structure during program execution. Since what you are storing is `key`-`value` pairs you could use golang's builtin `map` structure. If you don't remember how they worked and what operations you could do head back to the [Fundaments section](https://github.com/juanpablopizarro/golang-bootcamp/blob/master/fundamentals.md#arrays-slices-and-maps) to do a little recap.  
+This is an in-memory database which means that all the data will be kept in some data structure during program execution. Since what you are storing is `key`-`value` pairs you could use golang's builtin `map` structure. If you don't remember how they worked and what operations you could do head back to the [Fundaments section](/fundamentals.md#arrays-slices-and-maps) to do a little recap.  
 
 Here are a few articles that delve into how maps are implemented in Go and explains just a bit about [Go's memory model](https://golang.org/ref/mem)
 * [How the Go runtime implements maps efficiently](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics)
@@ -153,7 +153,7 @@ The features needed are:
 * http statuses responses
 
 ### REST Impl (3 days)
-Before you start writing the code for your API head over to our [HTTP Services in Go](https://github.com/juanpablopizarro/golang-bootcamp/blob/master/httpServices.md) section to learn the basics of writing servers in Go.
+Before you start writing the code for your API head over to our [HTTP Services in Go](/blob/master/httpServices.md) section to learn the basics of writing servers in Go.
 
 Once the API is defined, we are ready to implement it. 
 There are quite a lot of go libraries for creating HTTP routers and handlers. But to learn more about how all of it works use one of the following two options:
