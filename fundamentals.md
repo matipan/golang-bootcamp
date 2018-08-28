@@ -223,6 +223,9 @@ func main() {
 }
 ```
 
+### Exercise
+Before moving on to the following sections lets do a simple exercise to solidify what you've seen so far. Head over to the [Loops and functions](https://tour.golang.org/flowcontrol/8) exercise and implement what it's requested there.
+
 ### Pointers
 Go has pointers. A pointer in Go will hold the memory address of a value. The zero-value of pointers it's `nil`.  
 To declare a pointer to a type we use a syntax similar to C:
@@ -303,6 +306,41 @@ func main() {
 	fmt.Printf("x: %v y: %v", s.x, s.y)
 }
  ```
+
+### Composition over inheritance
+Like it was said in the introduction, go is about composition and there is no inheritance. Coming from an OOP world this might seem weird but you will get used to this way of thinking and in fact come to favor it over a complex structure of inheritance and subclassing. You can read [this section of effective go](https://golang.org/doc/effective_go.html#embedding) to learn a bit more and see some real-live examples on how to properly use composition.  
+Now lets illustrate this concept with a short example([GoPlay](https://goplay.space/#AnaEldEzcBl)):
+```go
+package main
+
+// User holds information of a given user.
+type User struct {
+	ID int
+	Name, Location string
+}
+
+// Here you can see that player embeds the User type.
+// This way we are saying that a Player holds is composed
+// of a User and a GameID.
+type Player struct {
+	User
+	GameID int
+}
+
+func main() {
+	p := Player{}
+	p.ID = 42
+	p.Name "Globant"
+	p.Location = "La Plata"
+	p.GameID = 90404
+	fmt.Printf("%+v", p)
+	// This prints:
+	// {User:{ID:42 Name:Globant Location:La Plata} GameID:90404}
+	// So you can see that the fields of a User are accessible
+	// from the Player, and the format shows us that a player
+	// is composed by a user.
+}
+```
 
 ### Arrays, slices and maps
 In Go there is something that is often confusing to newcomers and that is the difference between arrays and slices.  
